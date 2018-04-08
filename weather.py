@@ -1,14 +1,11 @@
 # -*- encoding: utf-8 -*-
 from rgbmatrix import RGBMatrix, RGBMatrixOptions, graphics
-from configparser import ConfigParser
-import argparse
 import json
 import requests
 import os
 import time
 from PIL import Image
 from utils import get_font, get_file
-
 
 class WeatherRenderer:
 
@@ -39,7 +36,6 @@ class WeatherRenderer:
         try:
             currently_summary = data['currently']['summary']
             currently_temperature = data['currently']['temperature']
-            print(currently_temperature)
             currently_icon = data['currently']['icon']
         except:
             currently_summary = ""
@@ -63,7 +59,6 @@ class WeatherRenderer:
         image.thumbnail((15, 15), Image.ANTIALIAS)
         pos = self.canvas.width
         pos_1 = self.canvas.width
-        start = time.time()
       
         while True:
             self.canvas.Fill(7, 14, 25)
