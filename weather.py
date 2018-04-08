@@ -24,7 +24,6 @@ class WeatherRenderer:
     def render(self):
         try:
             data = requests.get('https://api.darksky.net/forecast/' + self.apikey + '/' + self.city).json()
-            print(data)
         except Exception:
             time.sleep(1)
             data = requests.get('https://api.darksky.net/forecast/' + self.apikey + '/' + self.city).json()
